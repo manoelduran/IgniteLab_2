@@ -16,7 +16,7 @@ const Subscribe = () => {
     const [sending, setSending] = useState(false);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [createSubscriber, data] = useMutation(CREATE_SUBSCRIBER_MUTATION);
+    const [createSubscriber, {loading, data}] = useMutation(CREATE_SUBSCRIBER_MUTATION);
     const handleSubmit = useCallback(async (event: FormEvent): Promise<void> => {
         event.preventDefault();
         setSending(true);
@@ -67,7 +67,8 @@ const Subscribe = () => {
                         />
                         <button
                             type="submit"
-                            className="mt-4 bg-green-500 uppercase py-4 rounded font-bold text-sm hover:bg-green-700 transition-colors"
+                            disabled={loading}
+                            className="mt-4 bg-green-500 uppercase py-4 rounded font-bold text-sm hover:bg-green-700 transition-colors disabled:opacity-50"
                         >
                             Garantir minha vaga
                         </button>
