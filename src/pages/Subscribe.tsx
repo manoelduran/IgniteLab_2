@@ -9,7 +9,7 @@ const Subscribe = () => {
     const navigate = useNavigate();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [createSubscriber, { loading, data }] = useCreateSubscriberMutation();
+    const [createSubscriber, { loading }] = useCreateSubscriberMutation();
     const handleSubmit = useCallback(async (event: FormEvent): Promise<void> => {
         event.preventDefault();
         try {
